@@ -30,12 +30,15 @@ long int Conversion(long int input)
 	while (input >>= 1) {
 		lg2++;
 	}
+	printf("lg2 = %d\n", lg2);
 
 	temp = (lg2 + 1) * 1233 >> 12;
 	result = temp - (input < pow10[temp]);
-	result = pow(10, result);
+	printf("result = %ld\n", result);
 
-	return result;
+	//result = pow(10,result);
+
+	return pow(10,result);
 }
 
 int main(int argc, char **argv)
@@ -54,6 +57,7 @@ int main(int argc, char **argv)
 		{
 			case 'k' :
 				ans = Conversion(atol(optarg));
+				printf("ans = %ld\n", ans);	
 				printf("%s = %.1fK\n", optarg, (double) ans/K);
 				break;
 
