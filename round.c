@@ -77,6 +77,19 @@ int main(int argc, char **argv)
 		break;
 
 	    case 'h' :
+		ans = Conversion(atol(optarg));
+		if (ans <= K)
+		    printf("%s = %.1fK\n", optarg, (double) ans/K);
+		else if (ans <= M && ans > K)
+		    printf("%s = %.1fM\n", optarg, (double) ans/M);
+		else if (ans <= G && ans > M)
+		    printf("%s = %.1fG\n", optarg, (double) ans/G);
+		else if (ans <= T && ans > G)
+		    printf("%s = %.1fT\n", optarg, (double) ans/T);
+		else if (ans <= P && ans > T)
+		    printf("%s = %.1fP\n", optarg, (double) ans/P);
+		else
+		    printf("%s = %.1fE\n", optarg, (double) ans/E);
 		break;
 
 	    case '?' :
